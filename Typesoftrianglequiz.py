@@ -60,7 +60,7 @@ quiz_data = [
     {
         "question": "How many angles are there inside a triangle?",
         "choices": ["A. 3", "B. 4", "C. 5"],
-        "answer": "A. 3"
+        "answer": ["A. 3"]
     }
 
 ]
@@ -163,7 +163,7 @@ def start_quiz():
     nxt_button.pack(pady=10)
     current_qs = 0
     toggle_tts_button = ttk.Button(quiz_window, text="Toggle Text-to-Speech", command=toggle_text_to_speech)
-    toggle_tts_button.place(relx=0.1,rely=0.1)
+    toggle_tts_button.place(relx=0.075,rely=0.075)
 
     show_qs()
 
