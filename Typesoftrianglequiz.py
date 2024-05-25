@@ -3,7 +3,6 @@ import ttkbootstrap as ttkbootstrap
 from tkinter import messagebox
 from tkinter import ttk
 from os import system
-import customtkinter as ctk
 from ttkbootstrap import Style
 
 correction_variable = [". \nEquilateral is the correct answer as equilateral triangles have three equal sides", 
