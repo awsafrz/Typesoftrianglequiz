@@ -6,7 +6,7 @@ from os import system
 import customtkinter as ctk
 from ttkbootstrap import Style
 
-variable = [". \nEquilateral is the correct answer as equilateral triangles have three equal sides", 
+correction_variable = [". \nEquilateral is the correct answer as equilateral triangles have three equal sides", 
             ". \nIsosceles is the correct answer as isosceles triangles have two equal sides", 
             "\nScalene is the correct answer as scalene triangles have no equal sides", 
             "\nAcute is the correct answer as acute triangles have angles that are less than 90 degrees",
@@ -60,7 +60,7 @@ quiz_data = [
     {
         "question": "How many angles are there inside a triangle?",
         "choices": ["A. 3", "B. 4", "C. 5"],
-        "answer": ["A. 3"]
+        "answer": "A. 3"
     }
 
 ]
@@ -95,7 +95,7 @@ def check_ans(choice):
         score_label.config(text="Current score: {}/{}".format(score, len(quiz_data)))
         feedback_label.config(text="Congratulations! You have selected the correct option", foreground="green")
     else:
-        feedback_label.config(text="You have selected the incorrect option" + str(variable[current_qs]), foreground="red")
+        feedback_label.config(text="You have selected the incorrect option" + str(correction_variable[current_qs]), foreground="red")
     for button in choice_btn:
         button.config(state="disabled")
     nxt_button.config(state="normal")
@@ -182,18 +182,17 @@ options_frame.pack(pady=20)
 
 
 
-theme_button = ttk.Button(options_frame, text="Toggle Themes", command=toggle_theme)
+theme_button = ttk.Button(options_frame, text="Change Themes", command=toggle_theme)
 theme_button.grid(row=0, column=1, pady=10)
 
-# Changing font size
 font_size = ttk.Label(options_frame, text="Select Font Size:")
 font_size.grid(row=1, column=3, padx=10)
 
-font_size_combobox = ttk.Combobox(options_frame, values=list(range(10, 23)), state="readonly")
-font_size_combobox.grid(row=0, column=3, padx=10)
-font_size_combobox.current(5)  # Default font size
+font_size_change = ttk.Combobox(options_frame, values=list(range(10, 23)), state="readonly")
+font_size_change.grid(row=0, column=3, padx=10)
+font_size_change.current(5)
 
-change_font_btn = ttk.Button(options_frame, text="Click to change Font Size", command=lambda: change_font_size(int(font_size_combobox.get())))
+change_font_btn = ttk.Button(options_frame, text="Change Font Size", command=lambda: change_font_size(int(font_size_change.get())))
 change_font_btn.grid(row=0, column=4, padx=10)
 
 start_btn = ttk.Button(root, text="Click to start quiz", command=start_quiz)
