@@ -13,7 +13,8 @@ correction_variable = [". \nEquilateral is the correct answer as equilateral tri
             "\nObtuse is the correct answer as obtuse triangles have one angle that is greater than 90 degrees",
             "\n180 degrees is the correct answer as the sum of the angles inside triangles is 180 degrees",
             "\nC is the correct answer as all triangles have 3 sides",
-            "\nA is the correct answer as all triangles have 3 angles"
+            "\nA is the correct answer as all triangles have 3 angles",
+            "\nC is the correct answer as the longest side of a right angled triangle is called the hypotenuse"
             ]
 quiz_data = [
     {
@@ -60,6 +61,11 @@ quiz_data = [
         "question": "How many angles are there inside a triangle?",
         "choices": ["A. 3", "B. 4", "C. 5"],
         "answer": "A. 3"
+    },
+    {
+        "question": "What is the longest side of a right angled triangle called?",
+        "choices": ["A. Opposite", "B. Adjacent", "C. Hypotenuse"],
+        "answer": "C. Hypotenuse"
     }
 
 ]
@@ -100,8 +106,10 @@ def check_ans(choice):
     nxt_button.config(state="normal")
 
 def toggle_text_to_speech():
+    global text_to_speech_enabled
     question_text = quiz_data[current_qs]["question"]
-    system(f'say "{question_text}"')
+    options_list = " ".join(quiz_data[current_qs]["choices"])
+    system(f'say "{question_text} Select one of the following  {options_list}"')
     
 def toggle_theme():
     current_theme = style.theme_use()
@@ -149,7 +157,7 @@ def start_quiz():
         quiz_window,
         text="Score = 0/{}".format(len(quiz_data)),
         anchor="center",
-        padding=10
+        
     )
     score_label.pack(pady=10)
 
