@@ -87,7 +87,7 @@ def next_question():
         show_qs()
     else:
         messagebox.showinfo("Quiz Completed", "Your score: {}/{}".format(score, len(quiz_data)))
-        quiz_window.destroy()  # Close the quiz window
+        quiz_window.destroy()
         show_home_screen()
 
 def check_ans(choice):
@@ -157,7 +157,7 @@ def start_quiz():
         quiz_window,
         text="Score = 0/{}".format(len(quiz_data)),
         anchor="center",
-        
+        padding=10
     )
     score_label.pack(pady=10)
 
@@ -175,8 +175,8 @@ def start_quiz():
     show_qs()
 
 def show_home_screen():
-    root.deiconify()  # Show the root window
-    quiz_window.destroy()  # Close the quiz window
+    root.deiconify()
+    quiz_window.destroy()
 
 root = tk.Tk()
 root.title("Types of triangle quiz")
@@ -207,7 +207,6 @@ start_btn.pack(pady=10)
 
 text_to_speech_enabled = True
 
-#Initialise scores
 current_qs = 0
 score = 0
 
