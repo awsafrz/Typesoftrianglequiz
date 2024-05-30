@@ -29,3 +29,5 @@ User manual:
 Required installations to run the program:
 - Tkinter -> (pip install tkinter)
 - Ttkbootstrap -> (pip install ttkbootstrap)
+
+NOTE: Text to speech does not run on windows as the program was developed on macOS using System Os
